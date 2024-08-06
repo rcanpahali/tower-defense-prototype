@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bayt41i2apokn"]
+
+[ext_resource type="Texture2D" uid="uid://cxqlldf6idhr8" path="res://resources/tower.png" id="1_ganqd"]
+[ext_resource type="Script" path="res://tower.gd" id="2_2r0vk"]
+[ext_resource type="Texture2D" uid="uid://cfqs30pgdlraw" path="res://resources/fire.png" id="2_psn7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0n1oe"]
+radius = 679.001
+
+[node name="Tower" type="Sprite2D"]
+texture = ExtResource("1_ganqd")
+script = ExtResource("2_2r0vk")
+
+[node name="TowerFire" type="Sprite2D" parent="."]
+position = Vector2(25, -452)
+texture = ExtResource("2_psn7f")
+
+[node name="TowerArea" type="Area2D" parent="."]
+position = Vector2(-6, 378)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea" groups=["tower"]]
+position = Vector2(0, 86)
+shape = SubResource("CircleShape2D_0n1oe")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="TowerArea" to="." method="_on_tower_area_body_entered"]
+[connection signal="body_exited" from="TowerArea" to="." method="_on_tower_area_body_exited"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

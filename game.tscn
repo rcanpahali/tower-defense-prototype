@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddgtolxvcgb52"]
+
+[ext_resource type="Texture2D" uid="uid://coc5uy4d0exmv" path="res://resources/bg.png" id="1_fmhsi"]
+[ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://tower.tscn" id="2_t0tjd"]
+[ext_resource type="PackedScene" uid="uid://b61dt3y2jkp3o" path="res://enemy.tscn" id="3_bmrb6"]
+[ext_resource type="Script" path="res://camera.gd" id="3_isppq"]
+
+[node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="World"]
+texture = ExtResource("1_fmhsi")
+
+[node name="Tower" parent="World" instance=ExtResource("2_t0tjd")]
+
+[node name="Enemy" parent="World" instance=ExtResource("3_bmrb6")]
+position = Vector2(-1065, 534)
+
+[node name="Enemy2" parent="World" instance=ExtResource("3_bmrb6")]
+position = Vector2(-1315, 80)
+
+[node name="Enemy3" parent="World" instance=ExtResource("3_bmrb6")]
+position = Vector2(-1319, -502)
+
+[node name="Enemy4" parent="World" instance=ExtResource("3_bmrb6")]
+position = Vector2(-1001, -816)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("3_isppq")
