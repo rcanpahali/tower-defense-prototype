@@ -12,6 +12,7 @@ texture = ExtResource("1_ganqd")
 script = ExtResource("2_2r0vk")
 
 [node name="TowerFire" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(25, -452)
 texture = ExtResource("2_psn7f")
 
@@ -23,7 +24,7 @@ position = Vector2(0, 86)
 shape = SubResource("CircleShape2D_0n1oe")
 
 [node name="HitTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 
 [connection signal="body_entered" from="TowerArea" to="." method="_on_tower_area_body_entered"]
 [connection signal="body_exited" from="TowerArea" to="." method="_on_tower_area_body_exited"]

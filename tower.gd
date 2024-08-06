@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var hit_timer: Timer = $HitTimer
+@onready var tower_fire: Sprite2D = $TowerFire
 
 var enemy_list: Array[CharacterBody2D] = []
 
@@ -23,4 +24,10 @@ func _on_hit_timer_timeout() -> void:
 
 func tick_damage(enemy: CharacterBody2D):
 	if enemy.has_method("take_damage"):
+		run_fire_animation()
 		enemy.take_damage(30)
+
+func run_fire_animation():
+	tower_fire.visible = true
+	await get_tree().create_timer(0.3).timeout
+	tower_fire.visible = false
