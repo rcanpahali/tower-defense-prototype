@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://sprvkdyrxir5"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_5f6w2"]
+[ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="2_pbjj8"]
+[ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://health_bar.tscn" id="3_cec0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j71am"]
+radius = 50.0899
+
+[node name="Support" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_5f6w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pbjj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 61)
+shape = SubResource("CircleShape2D_j71am")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_cec0g")]
+position = Vector2(0, -152)
