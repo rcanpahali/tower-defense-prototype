@@ -12,7 +12,12 @@ const SUPPORT = preload("res://support.tscn")
 @export_enum("enemy", "support") var deployment_type = ""
 
 func _process(delta: float) -> void:
-	label.text = deployment_type
+	if deployment_type == "support":
+		label.text = "Deploy Support Units"
+	elif deployment_type == "enemy":
+		label.text = "Deploy Enemy Units"
+	else:
+		label.text = ""
 
 func _on_support_button_pressed() -> void:
 	if deployment_type != "support":

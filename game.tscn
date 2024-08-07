@@ -54,10 +54,10 @@ action_mode = 0
 icon = ExtResource("6_kpgid")
 
 [node name="Label" type="Label" parent="UI/CanvasLayer/Deployment"]
-offset_left = 539.0
-offset_top = 5.0
-offset_right = 579.0
-offset_bottom = 60.0
+offset_left = 7.0
+offset_top = 271.0
+offset_right = 47.0
+offset_bottom = 326.0
 theme_override_font_sizes/font_size = 40
 
 [node name="Camera2D" type="Camera2D" parent="."]

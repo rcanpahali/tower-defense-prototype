@@ -12,9 +12,10 @@ func _on_tower_area_body_entered(body: CharacterBody2D) -> void:
 		enemy_list.push_back(body)
 
 func _on_tower_area_body_exited(body: CharacterBody2D) -> void:
-	var index = enemy_list.find(body)
-	if index != -1:
-		enemy_list.remove_at(index)
+	if body.is_in_group("enemy"):
+		var index = enemy_list.find(body)
+		if index != -1:
+			enemy_list.remove_at(index)
 		
 func _on_hit_timer_timeout() -> void:
 	if enemy_list.size() > 0:
