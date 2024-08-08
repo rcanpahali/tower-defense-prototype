@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddgtolxvcgb52"]
+[gd_scene load_steps=9 format=3 uid="uid://ddgtolxvcgb52"]
 
 [ext_resource type="Texture2D" uid="uid://coc5uy4d0exmv" path="res://resources/bg.png" id="1_fmhsi"]
 [ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://tower.tscn" id="2_t0tjd"]
 [ext_resource type="PackedScene" uid="uid://b61dt3y2jkp3o" path="res://enemy.tscn" id="3_bmrb6"]
 [ext_resource type="Script" path="res://camera.gd" id="3_isppq"]
+[ext_resource type="Script" path="res://deployment.gd" id="4_c7hh1"]
+[ext_resource type="PackedScene" uid="uid://sprvkdyrxir5" path="res://support.tscn" id="4_mcpmy"]
 [ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="5_4twim"]
-[ext_resource type="Script" path="res://ui.gd" id="5_gamis"]
 [ext_resource type="Texture2D" uid="uid://bnlc6syr155b2" path="res://resources/enemy.png" id="6_kpgid"]
 
 [node name="Game" type="Node2D"]
@@ -18,26 +19,20 @@ texture = ExtResource("1_fmhsi")
 [node name="Tower" parent="World" instance=ExtResource("2_t0tjd")]
 
 [node name="Enemy" parent="World" instance=ExtResource("3_bmrb6")]
-position = Vector2(-1065, 534)
+position = Vector2(-817, 495)
 
-[node name="Enemy2" parent="World" instance=ExtResource("3_bmrb6")]
-position = Vector2(-1315, 80)
-
-[node name="Enemy3" parent="World" instance=ExtResource("3_bmrb6")]
-position = Vector2(-1319, -502)
-
-[node name="Enemy4" parent="World" instance=ExtResource("3_bmrb6")]
-position = Vector2(-1001, -816)
+[node name="Support" parent="World" instance=ExtResource("4_mcpmy")]
+position = Vector2(-1692, 351)
 
 [node name="UI" type="Node2D" parent="."]
 position = Vector2(5, 5)
-script = ExtResource("5_gamis")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+[node name="Deployment" type="Node2D" parent="UI"]
+script = ExtResource("4_c7hh1")
 
-[node name="Deployment" type="Node2D" parent="UI/CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/Deployment"]
 
-[node name="SupportButton" type="Button" parent="UI/CanvasLayer/Deployment"]
+[node name="SupportButton" type="Button" parent="UI/Deployment/CanvasLayer"]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 263.0
@@ -45,7 +40,7 @@ offset_bottom = 263.0
 action_mode = 0
 icon = ExtResource("5_4twim")
 
-[node name="EnemyButton" type="Button" parent="UI/CanvasLayer/Deployment"]
+[node name="EnemyButton" type="Button" parent="UI/Deployment/CanvasLayer"]
 offset_left = 268.0
 offset_top = 5.0
 offset_right = 526.0
@@ -53,7 +48,7 @@ offset_bottom = 263.0
 action_mode = 0
 icon = ExtResource("6_kpgid")
 
-[node name="Label" type="Label" parent="UI/CanvasLayer/Deployment"]
+[node name="Label" type="Label" parent="UI/Deployment/CanvasLayer"]
 offset_left = 7.0
 offset_top = 271.0
 offset_right = 47.0
@@ -64,5 +59,5 @@ theme_override_font_sizes/font_size = 40
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_isppq")
 
-[connection signal="pressed" from="UI/CanvasLayer/Deployment/SupportButton" to="UI" method="_on_support_button_pressed"]
-[connection signal="pressed" from="UI/CanvasLayer/Deployment/EnemyButton" to="UI" method="_on_enemy_button_pressed"]
+[connection signal="pressed" from="UI/Deployment/CanvasLayer/SupportButton" to="UI/Deployment" method="_on_support_button_pressed"]
+[connection signal="pressed" from="UI/Deployment/CanvasLayer/EnemyButton" to="UI/Deployment" method="_on_enemy_button_pressed"]

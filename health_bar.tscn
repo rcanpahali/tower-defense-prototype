@@ -18,3 +18,4 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
+show_percentage = false

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-var HEALTH = 100
+const SPEED = 0.0
+var HEALTH = 1000
 
 var enemies: Array[CharacterBody2D] = []
 
@@ -23,3 +23,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		var remove_at = enemies.find(body)
 		if remove_at != -1:
 			enemies.remove_at(remove_at)
+
+func take_damage(damage: float):
+	HEALTH = HEALTH - damage
+	if HEALTH < 0:
+		self.queue_free()

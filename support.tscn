@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://health_bar.tscn" id="3_cec0g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j71am"]
-radius = 50.0899
+radius = 78.1601
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs67u"]
-radius = 866.037
+radius = 940.013
 
 [node name="Support" type="CharacterBody2D" groups=["support"]]
 script = ExtResource("1_wylvi")
@@ -19,13 +19,15 @@ texture = ExtResource("2_pbjj8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j71am")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox"]
 shape = SubResource("CircleShape2D_rs67u")
+debug_color = Color(0, 0.6, 0.701961, 0.0784314)
 
 [node name="HealthBar" parent="." instance=ExtResource("3_cec0g")]
 position = Vector2(0, -152)
+background_color = Color(0, 0.878431, 0, 1)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="DetectBox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectBox" to="." method="_on_area_2d_body_exited"]

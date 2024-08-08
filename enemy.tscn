@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b61dt3y2jkp3o"]
+[gd_scene load_steps=7 format=3 uid="uid://b61dt3y2jkp3o"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_gnno0"]
 [ext_resource type="Texture2D" uid="uid://bnlc6syr155b2" path="res://resources/enemy.png" id="2_tri4v"]
 [ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://health_bar.tscn" id="3_eqhp4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j71am"]
-radius = 50.0899
+radius = 44.0454
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2uvuh"]
+radius = 443.137
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3lc0"]
+radius = 143.014
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_gnno0")
@@ -14,8 +20,31 @@ script = ExtResource("1_gnno0")
 texture = ExtResource("2_tri4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -29)
+position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_j71am")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_eqhp4")]
 position = Vector2(0, -112)
+background_color = Color(0.729412, 0, 0, 1)
+
+[node name="DetectBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox"]
+shape = SubResource("CircleShape2D_2uvuh")
+debug_color = Color(0, 0.6, 0.701961, 0.0784314)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_a3lc0")
+debug_color = Color(0.992157, 0, 0.227451, 0.0784314)
+
+[connection signal="body_entered" from="DetectBox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectBox" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

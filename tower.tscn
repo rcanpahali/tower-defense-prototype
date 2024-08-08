@@ -22,10 +22,11 @@ position = Vector2(-6, 378)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea" groups=["tower"]]
 position = Vector2(0, 86)
 shape = SubResource("CircleShape2D_0n1oe")
+debug_color = Color(0.979464, 0, 0.3917, 0.0784314)
 
-[node name="HitTimer" type="Timer" parent="."]
+[node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.4
 
 [connection signal="body_entered" from="TowerArea" to="." method="_on_tower_area_body_entered"]
 [connection signal="body_exited" from="TowerArea" to="." method="_on_tower_area_body_exited"]
-[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
