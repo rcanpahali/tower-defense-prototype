@@ -5,6 +5,8 @@ extends Sprite2D
 
 var enemy_list: Array[CharacterBody2D] = []
 
+const HEALTH = 10000
+
 func _on_tower_area_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemy"):
 		if damage_timer.is_stopped():			

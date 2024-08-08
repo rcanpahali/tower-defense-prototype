@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddgtolxvcgb52"]
+[gd_scene load_steps=7 format=3 uid="uid://ddgtolxvcgb52"]
 
 [ext_resource type="Texture2D" uid="uid://coc5uy4d0exmv" path="res://resources/bg.png" id="1_fmhsi"]
 [ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://tower.tscn" id="2_t0tjd"]
 [ext_resource type="PackedScene" uid="uid://b61dt3y2jkp3o" path="res://enemy.tscn" id="3_bmrb6"]
-[ext_resource type="Script" path="res://camera.gd" id="3_isppq"]
-[ext_resource type="Script" path="res://deployment.gd" id="4_c7hh1"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="3_isppq"]
 [ext_resource type="PackedScene" uid="uid://sprvkdyrxir5" path="res://support.tscn" id="4_mcpmy"]
-[ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="5_4twim"]
-[ext_resource type="Texture2D" uid="uid://bnlc6syr155b2" path="res://resources/enemy.png" id="6_kpgid"]
+[ext_resource type="PackedScene" uid="uid://cqsv8pmty47rf" path="res://deployment.tscn" id="5_k2c5i"]
 
 [node name="Game" type="Node2D"]
 
@@ -27,37 +25,8 @@ position = Vector2(-1692, 351)
 [node name="UI" type="Node2D" parent="."]
 position = Vector2(5, 5)
 
-[node name="Deployment" type="Node2D" parent="UI"]
-script = ExtResource("4_c7hh1")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="UI/Deployment"]
-
-[node name="SupportButton" type="Button" parent="UI/Deployment/CanvasLayer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 263.0
-offset_bottom = 263.0
-action_mode = 0
-icon = ExtResource("5_4twim")
-
-[node name="EnemyButton" type="Button" parent="UI/Deployment/CanvasLayer"]
-offset_left = 268.0
-offset_top = 5.0
-offset_right = 526.0
-offset_bottom = 263.0
-action_mode = 0
-icon = ExtResource("6_kpgid")
-
-[node name="Label" type="Label" parent="UI/Deployment/CanvasLayer"]
-offset_left = 7.0
-offset_top = 271.0
-offset_right = 47.0
-offset_bottom = 326.0
-theme_override_font_sizes/font_size = 40
+[node name="Deployment" parent="UI" instance=ExtResource("5_k2c5i")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_isppq")
-
-[connection signal="pressed" from="UI/Deployment/CanvasLayer/SupportButton" to="UI/Deployment" method="_on_support_button_pressed"]
-[connection signal="pressed" from="UI/Deployment/CanvasLayer/EnemyButton" to="UI/Deployment" method="_on_enemy_button_pressed"]

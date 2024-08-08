@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dinchin4nq8hq"]
+[gd_scene load_steps=3 format=3 uid="uid://dinchin4nq8hq"]
 
-[ext_resource type="Script" path="res://health_bar.gd" id="1_f7637"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_ykvhx"]
+[ext_resource type="Texture2D" uid="uid://b3o0n2nakynop" path="res://resources/attack_indicator.png" id="2_khudj"]
 
 [node name="HealthBar" type="Node2D"]
-script = ExtResource("1_f7637")
+script = ExtResource("1_ykvhx")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 8
@@ -14,8 +15,13 @@ anchor_bottom = 0.5
 offset_left = -133.0
 offset_top = -13.0
 offset_right = 131.0
-offset_bottom = 14.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 show_percentage = false
+
+[node name="AttackIndicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+texture = ExtResource("2_khudj")
