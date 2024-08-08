@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/support.gd" id="1_2wsoi"]
 [ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="2_pbjj8"]
-[ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://health_bar.tscn" id="3_cec0g"]
+[ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://scenes/health_bar.tscn" id="3_cec0g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j71am"]
 radius = 78.1601

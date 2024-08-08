@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddgtolxvcgb52"]
 
 [ext_resource type="Texture2D" uid="uid://coc5uy4d0exmv" path="res://resources/bg.png" id="1_fmhsi"]
-[ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://tower.tscn" id="2_t0tjd"]
-[ext_resource type="PackedScene" uid="uid://b61dt3y2jkp3o" path="res://enemy.tscn" id="3_bmrb6"]
+[ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://scenes/tower.tscn" id="2_t0tjd"]
+[ext_resource type="PackedScene" uid="uid://b61dt3y2jkp3o" path="res://scenes/enemy.tscn" id="3_bmrb6"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_isppq"]
-[ext_resource type="PackedScene" uid="uid://sprvkdyrxir5" path="res://support.tscn" id="4_mcpmy"]
-[ext_resource type="PackedScene" uid="uid://cqsv8pmty47rf" path="res://deployment.tscn" id="5_k2c5i"]
+[ext_resource type="PackedScene" uid="uid://sprvkdyrxir5" path="res://scenes/support.tscn" id="4_mcpmy"]
+[ext_resource type="PackedScene" uid="uid://cqsv8pmty47rf" path="res://scenes/deployment.tscn" id="5_k2c5i"]
 
 [node name="Game" type="Node2D"]
 
