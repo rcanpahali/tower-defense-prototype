@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://sprvkdyrxir5"]
 
-[ext_resource type="Script" path="res://scripts/support.gd" id="1_2wsoi"]
-[ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="2_pbjj8"]
-[ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://scenes/health_bar.tscn" id="3_cec0g"]
+[ext_resource type="Script" path="res://scripts/support.gd" id="1_0tkvq"]
+[ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="2_y1nm8"]
+[ext_resource type="PackedScene" uid="uid://dinchin4nq8hq" path="res://scenes/health_bar.tscn" id="3_1xlj5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j71am"]
 radius = 78.1601
@@ -14,10 +14,10 @@ radius = 1431.01
 radius = 146.492
 
 [node name="Support" type="CharacterBody2D" groups=["support"]]
-script = ExtResource("1_2wsoi")
+script = ExtResource("1_0tkvq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pbjj8")
+texture = ExtResource("2_y1nm8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j71am")
@@ -28,7 +28,7 @@ shape = SubResource("CircleShape2D_j71am")
 shape = SubResource("CircleShape2D_rs67u")
 debug_color = Color(0, 0.6, 0.701961, 0.0784314)
 
-[node name="HealthBar" parent="." instance=ExtResource("3_cec0g")]
+[node name="HealthBar" parent="." instance=ExtResource("3_1xlj5")]
 position = Vector2(0, -152)
 background_color = Color(0, 0.878431, 0, 1)
 

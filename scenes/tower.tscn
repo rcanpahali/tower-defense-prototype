@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bayt41i2apokn"]
+[gd_scene load_steps=6 format=3 uid="uid://bayt41i2apokn"]
 
 [ext_resource type="Texture2D" uid="uid://cxqlldf6idhr8" path="res://resources/tower.png" id="1_ganqd"]
 [ext_resource type="Script" path="res://scripts/tower.gd" id="2_2r0vk"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0n1oe"]
 radius = 679.001
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pb71"]
+radius = 264.273
 
 [node name="Tower" type="Sprite2D"]
 texture = ExtResource("1_ganqd")
@@ -33,13 +36,22 @@ anchor_left = 0.501
 anchor_top = 0.067
 anchor_right = 0.501
 anchor_bottom = 0.067
-offset_left = -570.5
+offset_left = -734.5
 offset_top = -539.0
-offset_right = 70.5
+offset_right = 228.5
 offset_bottom = -460.0
 max_value = 10000.0
 show_percentage = false
 
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 378)
+shape = SubResource("CircleShape2D_2pb71")
+debug_color = Color(1, 0.488106, 0.623369, 0.0784314)
+
 [connection signal="body_entered" from="TowerArea" to="." method="_on_tower_area_body_entered"]
 [connection signal="body_exited" from="TowerArea" to="." method="_on_tower_area_body_exited"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]

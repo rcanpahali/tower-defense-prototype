@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dinchin4nq8hq"]
 
-[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_ykvhx"]
-[ext_resource type="Texture2D" uid="uid://b3o0n2nakynop" path="res://resources/attack_indicator.png" id="2_khudj"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_ujabq"]
+[ext_resource type="Texture2D" uid="uid://b3o0n2nakynop" path="res://resources/attack_indicator.png" id="2_b04r8"]
 
 [node name="HealthBar" type="Node2D"]
-script = ExtResource("1_ykvhx")
+script = ExtResource("1_ujabq")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 8
@@ -24,4 +24,4 @@ show_percentage = false
 [node name="AttackIndicator" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -4)
-texture = ExtResource("2_khudj")
+texture = ExtResource("2_b04r8")
