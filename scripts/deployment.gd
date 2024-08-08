@@ -2,6 +2,7 @@ extends Node2D
 
 const ENEMY = preload("res://scenes/enemy.tscn")
 const SUPPORT = preload("res://scenes/support.tscn")
+const SPAWN_MARKER = preload("res://scenes/spawn_marker.tscn")
 
 @onready var WORLD = get_tree().get_first_node_in_group("world")
 
@@ -34,7 +35,6 @@ func _on_enemy_button_pressed() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == 1 && event.button_mask == 1:
-				print("deploy")
 				handle_deployment()
 
 func handle_deployment():
@@ -43,6 +43,15 @@ func handle_deployment():
 		new_enemy.global_position = get_global_mouse_position()
 		WORLD.add_child(new_enemy)
 	if deployment_type == "support":
-		var new_support = SUPPORT.instantiate()
-		new_support.global_position = get_global_mouse_position()
+		var new_spawn_marker = create_spawn_marker()	
+		var new_support = SUPPORT.instantiate()		
+		new_support.global_position = get_tree().get_first_node_in_group("castle").global_position
+		new_support.spawn_marker = new_spawn_marker
 		WORLD.add_child(new_support)
+
+func create_spawn_marker():
+	var spawn_marker = SPAWN_MARKER.instantiate()	
+	spawn_marker.support_unit_instance_id = spawn_marker.get_instance_id()
+	spawn_marker.global_position = get_global_mouse_position()
+	WORLD.add_child(spawn_marker)
+	return spawn_marker

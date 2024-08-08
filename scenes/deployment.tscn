@@ -6,30 +6,33 @@
 
 [node name="Deployment" type="Node2D"]
 script = ExtResource("1_l2nfh")
+deployment_type = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SupportButton" type="Button" parent="CanvasLayer"]
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 263.0
-offset_bottom = 263.0
+offset_right = 205.0
+offset_bottom = 205.0
 action_mode = 0
 icon = ExtResource("2_uw2hs")
+expand_icon = true
 
 [node name="EnemyButton" type="Button" parent="CanvasLayer"]
-offset_left = 268.0
+offset_left = 211.0
 offset_top = 5.0
-offset_right = 526.0
-offset_bottom = 263.0
+offset_right = 411.0
+offset_bottom = 205.0
 action_mode = 0
 icon = ExtResource("3_bcsma")
+expand_icon = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 7.0
-offset_top = 270.0
+offset_top = 210.0
 offset_right = 47.0
-offset_bottom = 325.0
+offset_bottom = 265.0
 theme_override_font_sizes/font_size = 40
 
 [connection signal="pressed" from="CanvasLayer/SupportButton" to="." method="_on_support_button_pressed"]

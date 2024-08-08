@@ -8,21 +8,36 @@ var HEALTH = 1000
 
 var moving_enemies: Array[CharacterBody2D] = []
 var hitbox_targets : Array[CharacterBody2D] = []
+var spawn_marker: Sprite2D = null
 
 func _physics_process(delta: float) -> void:
 	if moving_enemies.size() > 0: #always attack the closest enemy unit
 		move_to_enemy(delta)
 		if damage_timer.is_stopped():
 			damage_timer.start()
+	elif spawn_marker != null:
+		move_to_mark(delta)
 		
 func move_to_enemy(_delta: float):
-	var direction = self.global_position.direction_to(moving_enemies[0].global_position)
-	velocity = direction * SPEED
-	move_and_slide()	
+	var enemy_position = moving_enemies[0].global_position
+	if self.global_position.distance_to(enemy_position) > 100:
+		var direction = self.global_position.direction_to(enemy_position)
+		velocity = direction * SPEED
+		move_and_slide()	
+
+func move_to_mark(_delta: float):
+	# remove the target spawn_marker when the support unit reaches the target or collide with an enemy unit
+	if self.global_position.distance_to(spawn_marker.global_position) > 100:
+		var direction = self.global_position.direction_to(spawn_marker.global_position)
+		velocity = direction * SPEED
+		move_and_slide()
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemy"):
 		moving_enemies.push_back(body)
+		if spawn_marker != null:
+			spawn_marker.queue_free()
+			spawn_marker = null
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
