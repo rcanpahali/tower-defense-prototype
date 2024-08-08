@@ -20,7 +20,7 @@ texture = ExtResource("1_fmhsi")
 position = Vector2(-817, 495)
 
 [node name="Support" parent="World" instance=ExtResource("4_mcpmy")]
-position = Vector2(-1692, 351)
+position = Vector2(-2390, 662)
 
 [node name="UI" type="Node2D" parent="."]
 position = Vector2(5, 5)

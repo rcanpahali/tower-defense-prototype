@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 200.0
 const DAMAGE = 50.0
 var HEALTH = 1500
 
@@ -13,8 +13,8 @@ var target_position: Vector2 = Vector2.ZERO
 var moving_targets: Array[CharacterBody2D] = []
 var hitbox_targets : Array[CharacterBody2D] = []
 
-func _ready() -> void:
-	target_position = tower.global_position
+func _ready() -> void:	
+	target_position = get_tower_position()
 
 func _process(_delta: float) -> void:
 	if moving_targets.size() > 0: # always attack the closest support unit
@@ -42,7 +42,7 @@ func _on_area_2d_body_exited(body: CharacterBody2D) -> void:
 			moving_targets.remove_at(remove_at)
 			if moving_targets.size() == 0:
 				damage_timer.stop()
-				target_position = tower.global_position # start moving forward to tower
+				target_position = get_tower_position() # start moving forward to tower
 
 func take_damage(damage: float):
 	HEALTH = HEALTH - damage
@@ -70,3 +70,10 @@ func _on_hit_box_body_exited(body: CharacterBody2D) -> void:
 		var remove_at = hitbox_targets.find(body)
 		if remove_at != -1:
 			hitbox_targets.remove_at(remove_at)
+
+########## MISC ##########
+
+func get_tower_position() -> Vector2:
+	if is_instance_valid(tower):
+		return tower.global_position
+	return Vector2.ZERO
