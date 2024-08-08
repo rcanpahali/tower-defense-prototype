@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		if damage_timer.is_stopped():
 			damage_timer.start()
 		
-func move_to_enemy(delta: float):
+func move_to_enemy(_delta: float):
 	var direction = self.global_position.direction_to(moving_enemies[0].global_position)
 	velocity = direction * SPEED
 	move_and_slide()	

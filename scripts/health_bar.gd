@@ -13,6 +13,6 @@ func _ready() -> void:
 	progress_bar.value =  parent_character.HEALTH
 	progress_bar.max_value =  parent_character.HEALTH
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	attack_indicator.visible = !parent_character.damage_timer.is_stopped()
 	progress_bar.value =  parent_character.HEALTH

@@ -1,7 +1,7 @@
 extends Node2D
 
-const ENEMY = preload("res://enemy.tscn")
-const SUPPORT = preload("res://support.tscn")
+const ENEMY = preload("res://scenes/enemy.tscn")
+const SUPPORT = preload("res://scenes/support.tscn")
 
 @onready var WORLD = get_tree().get_first_node_in_group("world")
 
@@ -11,7 +11,7 @@ const SUPPORT = preload("res://support.tscn")
 
 @export_enum("enemy", "support") var deployment_type = ""
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if deployment_type == "support":
 		label.text = "Deploy Support"
 	elif deployment_type == "enemy":
