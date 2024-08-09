@@ -24,7 +24,7 @@ texture = ExtResource("5_sfww7")
 position = Vector2(5, 5)
 
 [node name="Deployment" parent="UI" instance=ExtResource("5_k2c5i")]
-deployment_type = null
+deployment_type = ""
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)

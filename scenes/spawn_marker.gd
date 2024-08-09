@@ -1,12 +1,9 @@
 extends Sprite2D
 
-var support_unit_instance_id
-
-func _ready():
-	print("TargetMark is ready", support_unit_instance_id)
+var support_unit_rid:RID
 
 func _on_area_2d_body_entered(body:CharacterBody2D) -> void:
-	# TODO: fixme => instance id is not matching
-	print(body.get_instance_id())
-	if body.get_instance_id() == support_unit_instance_id:
-		queue_free()
+	# remove the target spawn_marker when the support unit reaches the target
+	if is_instance_valid(body):
+		if body.get_rid() == support_unit_rid:
+			self.queue_free()

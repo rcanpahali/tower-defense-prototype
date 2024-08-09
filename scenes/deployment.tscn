@@ -6,7 +6,6 @@
 
 [node name="Deployment" type="Node2D"]
 script = ExtResource("1_l2nfh")
-deployment_type = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

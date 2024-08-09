@@ -26,7 +26,6 @@ func move_to_enemy(_delta: float):
 		move_and_slide()	
 
 func move_to_mark(_delta: float):
-	# remove the target spawn_marker when the support unit reaches the target or collide with an enemy unit
 	if self.global_position.distance_to(spawn_marker.global_position) > 100:
 		var direction = self.global_position.direction_to(spawn_marker.global_position)
 		velocity = direction * SPEED
@@ -36,6 +35,7 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemy"):
 		moving_enemies.push_back(body)
 		if spawn_marker != null:
+			# remove the target spawn_marker when the support unit collide with an enemy unit
 			spawn_marker.queue_free()
 			spawn_marker = null
 
