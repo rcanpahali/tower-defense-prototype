@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqsv8pmty47rf"]
+[gd_scene load_steps=6 format=3 uid="uid://cqsv8pmty47rf"]
 
 [ext_resource type="Script" path="res://scripts/deployment.gd" id="1_l2nfh"]
 [ext_resource type="Texture2D" uid="uid://b6xch8vnna0gw" path="res://resources/support_unit.png" id="2_uw2hs"]
 [ext_resource type="Texture2D" uid="uid://bnlc6syr155b2" path="res://resources/enemy.png" id="3_bcsma"]
+[ext_resource type="Texture2D" uid="uid://1qcwoo868heh" path="res://resources/castle.png" id="4_xw7gw"]
+[ext_resource type="Texture2D" uid="uid://c7kf4em8aihhj" path="res://resources/teleport_gate.png" id="5_8ke1n"]
 
 [node name="Deployment" type="Node2D"]
 script = ExtResource("1_l2nfh")
@@ -34,5 +36,27 @@ offset_right = 47.0
 offset_bottom = 265.0
 theme_override_font_sizes/font_size = 40
 
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 902.0
+offset_right = 405.0
+offset_bottom = 1068.0
+theme_override_font_sizes/font_size = 30
+expand_icon = true
+item_count = 3
+selected = 0
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "Main Castle"
+popup/item_0/icon = ExtResource("4_xw7gw")
+popup/item_0/id = 0
+popup/item_1/text = "North Gate"
+popup/item_1/icon = ExtResource("5_8ke1n")
+popup/item_1/id = 1
+popup/item_2/text = "South Gate"
+popup/item_2/icon = ExtResource("5_8ke1n")
+popup/item_2/id = 2
+
 [connection signal="pressed" from="CanvasLayer/SupportButton" to="." method="_on_support_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EnemyButton" to="." method="_on_enemy_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/OptionButton" to="." method="_on_option_button_item_selected"]

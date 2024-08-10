@@ -23,9 +23,9 @@ texture = ExtResource("2_psn7f")
 position = Vector2(-6, 378)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea" groups=["tower"]]
-position = Vector2(0, 86)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_0n1oe")
-debug_color = Color(0.979464, 0, 0.3917, 0.0784314)
+debug_color = Color(0.4, 1, 0, 0.0784314)
 
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.4

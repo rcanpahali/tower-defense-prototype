@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddgtolxvcgb52"]
+[gd_scene load_steps=7 format=3 uid="uid://ddgtolxvcgb52"]
 
 [ext_resource type="Texture2D" uid="uid://coc5uy4d0exmv" path="res://resources/bg.png" id="1_fmhsi"]
 [ext_resource type="PackedScene" uid="uid://bayt41i2apokn" path="res://scenes/tower.tscn" id="2_t0tjd"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_isppq"]
+[ext_resource type="PackedScene" uid="uid://brdhclchw85xi" path="res://scenes/teleport_gate.tscn" id="4_4fxo2"]
 [ext_resource type="PackedScene" uid="uid://cqsv8pmty47rf" path="res://scenes/deployment.tscn" id="5_k2c5i"]
 [ext_resource type="Texture2D" uid="uid://1qcwoo868heh" path="res://resources/castle.png" id="5_sfww7"]
 
@@ -20,12 +21,21 @@ position = Vector2(-704, -95)
 scale = Vector2(2, 2)
 texture = ExtResource("5_sfww7")
 
+[node name="TeleportGates" type="Node2D" parent="World"]
+
+[node name="NorthGate" parent="World/TeleportGates" groups=["north_gate"] instance=ExtResource("4_4fxo2")]
+position = Vector2(1631, -827)
+gate_name = "North Gate"
+
+[node name="SouthGate" parent="World/TeleportGates" groups=["south_gate"] instance=ExtResource("4_4fxo2")]
+position = Vector2(1231, 951)
+gate_name = "South Gate"
+
 [node name="UI" type="Node2D" parent="."]
 position = Vector2(5, 5)
 
 [node name="Deployment" parent="UI" instance=ExtResource("5_k2c5i")]
-deployment_type = ""
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_isppq")
