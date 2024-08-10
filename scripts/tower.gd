@@ -64,3 +64,4 @@ func take_self_damage():
 	progress_bar.value = HEALTH
 	if HEALTH < 0:
 		self.queue_free()
+		get_tree().paused = true

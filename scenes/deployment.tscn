@@ -31,16 +31,16 @@ expand_icon = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 7.0
-offset_top = 210.0
+offset_top = 837.0
 offset_right = 47.0
-offset_bottom = 265.0
+offset_bottom = 892.0
 theme_override_font_sizes/font_size = 40
 
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
-offset_left = 21.0
-offset_top = 902.0
-offset_right = 405.0
-offset_bottom = 1068.0
+offset_left = 10.0
+offset_top = 905.0
+offset_right = 394.0
+offset_bottom = 1071.0
 theme_override_font_sizes/font_size = 30
 expand_icon = true
 item_count = 3

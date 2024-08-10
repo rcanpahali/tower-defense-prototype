@@ -15,6 +15,9 @@ const SPAWN_MARKER = preload("res://scenes/spawn_marker.tscn")
 
 var support_spawn_position: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	support_spawn_position = get_tree().get_first_node_in_group("castle").global_position
+
 func _process(_delta: float) -> void:
 	if deployment_type == "support":
 		label.text = "Deploy Support"
@@ -26,14 +29,20 @@ func _process(_delta: float) -> void:
 func _on_support_button_pressed() -> void:
 	if deployment_type != "support":
 		deployment_type = "support"
+		support_button.modulate = Color.GREEN
+		enemy_button.modulate = Color.WHITE
 	else:
 		deployment_type = ""
+		support_button.modulate = Color.WHITE
 
 func _on_enemy_button_pressed() -> void:
 	if deployment_type != "enemy":
 		deployment_type = "enemy"
+		enemy_button.modulate = Color.RED
+		support_button.modulate = Color.WHITE
 	else:
 		deployment_type = ""
+		enemy_button.modulate = Color.WHITE
 
 func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
