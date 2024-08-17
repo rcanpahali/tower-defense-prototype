@@ -17,26 +17,6 @@
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
 texture = ExtResource("1_fmhsi")
 
-[node name="Zone2" type="Sprite2D" parent="World/Zones"]
-modulate = Color(1, 0.705882, 1, 1)
-position = Vector2(3844, 0)
-texture = ExtResource("1_fmhsi")
-
-[node name="Zone3" type="Sprite2D" parent="World/Zones"]
-modulate = Color(0.309804, 1, 1, 1)
-position = Vector2(0, 2157)
-texture = ExtResource("1_fmhsi")
-
-[node name="Zone4" type="Sprite2D" parent="World/Zones"]
-modulate = Color(0.838548, 0.957918, 7.70092e-07, 1)
-position = Vector2(0, -2160)
-texture = ExtResource("1_fmhsi")
-
-[node name="Zone5" type="Sprite2D" parent="World/Zones"]
-modulate = Color(3.56168e-06, 0.93759, 0.434223, 1)
-position = Vector2(-3839, 0)
-texture = ExtResource("1_fmhsi")
-
 [node name="Tower" parent="World" instance=ExtResource("2_t0tjd")]
 
 [node name="Castle" type="Sprite2D" parent="World" groups=["castle"]]
